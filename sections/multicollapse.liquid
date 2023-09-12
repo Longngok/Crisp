@@ -1,0 +1,175 @@
+<div class="container">
+  <div class="d-grid xs-4--column lg-18--column lg-2--rows lg-gap--30">
+    {% for blocks in section.blocks %}
+      {% case blocks.type %}
+        {% when 'card1' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span9 lg-grid__en10 p-relative bg__img" style="--bg-img: {{ blocks.settings.img | image_url }}">
+          <img
+            class="width--100pc height--100pc"
+            src="{{ blocks.settings.img | image_url }}"
+            alt="{{ blocks.settings.img.alt }}">
+          <div class="card-body p-absolute">
+            <h3>
+              {{ blocks.settings.header }}
+            </h3>
+            <p>
+              {{ blocks.settings.content }}
+            </p>
+          </div>
+        </div>
+        {% when 'card2' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span9 lg-grid__en19 lg-grid__rspan2 p-relative">
+          <img
+            class="width--100pc height--100pc"
+            src="{{ blocks.settings.img | image_url }}"
+            alt="{{ blocks.settings.img.alt }}">
+          <div class="card-body p-absolute">
+            <h3>
+              {{ blocks.settings.header }}
+            </h3>
+            <p>
+              {{ blocks.settings.content }}
+            </p>
+          </div>
+        </div>
+        {% when 'card3' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span9 lg-grid__en10 p-relative">
+          <img
+            class="width--100pc height--100pc"
+            src="{{ blocks.settings.img | image_url }}"
+            alt="{{ blocks.settings.img.alt }}">
+          <div class="card-body p-absolute">
+            <h3>
+              {{ blocks.settings.header }}
+            </h3>
+            <p>
+              {{ blocks.settings.content }}
+            </p>
+          </div>
+        </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Multicollapse",
+    "tag": "section",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "card1",
+        "name": "card 1",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "header",
+            "label": "Heading",
+            "default": "Your title"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "content",
+            "label": "content",
+            "default": "Your content"
+          },
+          {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button label",
+            "default": "Shop now"
+          }, {
+            "type": "url",
+            "id": "link",
+            "label": "Button link"
+          }
+        ]
+      }, {
+        "type": "card2",
+        "name": "card 2",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "header",
+            "label": "Heading",
+            "default": "Your title"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "content",
+            "label": "content",
+            "default": "Your content"
+          },
+          {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button label",
+            "default": "Shop now"
+          }, {
+            "type": "url",
+            "id": "link",
+            "label": "Button link"
+          }
+        ]
+      }, {
+        "type": "card3",
+        "name": "card 3",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "header",
+            "label": "Heading",
+            "default": "Your title"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "content",
+            "label": "content",
+            "default": "Your content"
+          },
+          {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button label",
+            "default": "Shop now"
+          }, {
+            "type": "url",
+            "id": "link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 3,
+    "presets": [
+      {
+        "name": "Multi Collapse",
+        "blocks": [
+          {
+            "type": "card1"
+          }, {
+            "type": "card2"
+          }, {
+            "type": "card3"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

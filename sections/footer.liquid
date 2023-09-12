@@ -1,0 +1,209 @@
+<div class="container">
+  <div class="d-grid xs-4--column lg-18--column xs-gap--14 lg-gap--30">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'logo' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span3">
+          <div>
+            <img src="{{ block.settings.logo | image_url }}" alt="{{ shop.name }}">
+          </div>
+        </div>
+        {% when 'featured' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span3">
+          <div>
+            <h3>{{ blocks.settings.header }}</h3>
+            {% for blocks in collections %}
+              <a href="{{ blocks.url }}">
+                {{ blocks.title }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% when 'link_list' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span3">
+          <div>
+            <h3>{{ block.settings.header }}</h3>
+            {% for link in block.settings.footer_menu.links %}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% when 'contact' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span3">
+          <div>
+            <h3>{{ block.settings.header }}</h3>
+            {% for contact in block.settings.contact %}
+              <h4>{{ contact.title }}</h4>
+              <p>{{ contact.content }}</p>
+            {% endfor %}
+          </div>
+        </div>
+        {% when 'social' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span3">
+          <div>
+            <h3>{{ block.settings.header }}</h3>
+            <div>
+              {% render 'icon-facebook' %}
+              <span>Facebook</span>
+            </div>
+            <div>
+              {% render 'icon-twitter' %}
+              <span>Twitter</span>
+            </div>
+            <div>
+              {% render 'icon-instagram' %}
+              <span>Instagram</span>
+            </div>
+          </div>
+        </div>
+        {% when 'form' %}
+        <div class="grid__item xs-grid__span4 lg-grid__span3">
+          <div>
+            <h3>{{ block.settings.header }}</h3>
+            {% form 'customer', id: 'ContactFooter', class: 'd-flex flex-cl gap-20 lg-gap-30' %}
+              <label class="h-2xs c-grey5 fw-400">
+                {{ block.settings.form_title | upcase }}
+              </label>
+              <div class="p-relative">
+                <input
+                  id="NewsletterForm--{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  required
+                  value="{{ form.email }}"
+                  placeholder="Your Email">
+                <button
+                  type="submit"
+                  id="Subscribe"
+                  class="btn btn-link btn-border--none c-grey5 p-absolute top-8 right-10">{{ block.settings.button_form }}Subscribe</button>
+              </div>
+            {% endform %}
+          </div>
+        </div>
+      {% endcase %}
+    {% endfor %}
+    <div class="grid-item xs-grid__span4 lg-grid__span18">
+      <span>
+        {{ section.settings.copy_right }}
+      </span>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "tag": "footer",
+    "class": "bg__clr--primary",
+    "settings": [
+      {
+        "type": "text",
+        "id": "copy_right",
+        "label": "Text",
+        "default": "© 2019. Crisp theme Developed by Belvg"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Logo",
+        "type": "logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          }
+        ]
+      },
+      {
+        "name": "Featured",
+        "type": "featured",
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "header",
+            "label": "Featured Header"
+          }
+        ]
+      },
+      {
+        "name": "Footer Menu",
+        "type": "link_list",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Menu Header",
+            "default": "Menu"
+          }, {
+            "type": "link_list",
+            "id": "footer_menu",
+            "label": "Footer Menu"
+          }
+        ]
+      },
+      {
+        "name": "Contact",
+        "type": "contact",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Address header",
+            "default": "Contact us"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Address title",
+            "default": "Address"
+          }, {
+            "type": "text",
+            "id": "content",
+            "label": "Address content",
+            "default": "123 STREET NAME, CITY, ENGLAND"
+          }
+        ]
+      }, {
+        "name": "Social",
+        "type": "social",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Social Header"
+          }, {
+            "type": "url",
+            "id": "facebook_url",
+            "label": "Facebook Link"
+          }, {
+            "type": "url",
+            "id": "twitter_url",
+            "label": "Twitter Link"
+          }, {
+            "type": "url",
+            "id": "instagram_url",
+            "label": "Instagram Link"
+          }
+        ]
+      }, {
+        "name": "Form",
+        "type": "form",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Form Header"
+          }, {
+            "type": "text",
+            "id": "form_title",
+            "label": "Form Title"
+          }, {
+            "type": "text",
+            "id": "button_form",
+            "label": "Form Button Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

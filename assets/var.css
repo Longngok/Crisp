@@ -1,0 +1,12 @@
+:root
+{
+    --ctpi: 1.4rem;
+
+    --color-primary: #000;
+    --color-secondary: #FFF;
+    --color-danger: #EB5757;
+    --color-muted: #C4C4C4;
+    --color-grey: #828282;
+
+    --root-font-size: 1rem;
+}

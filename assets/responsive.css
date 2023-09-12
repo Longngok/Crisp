@@ -1,0 +1,40 @@
+@media (min-width: 512px) {
+    
+}
+
+@media (min-width: 786px) {
+    /*--header--*/
+    .logo__size
+    {
+        height: 4.4rem;
+        width: 9.4rem;
+    }
+
+    .nav__padding
+    {
+        padding: initial;
+    }
+
+    /*--Liquid custome--*/
+    .lg-p__block
+    {
+        padding-block: var(--padding-block);
+    }
+
+    .input-show
+    {
+        top: -100%;  
+        opacity: 0.5;
+    }
+
+    .input-show.active
+    {
+        top: 100%;  
+        opacity: 1;
+    }
+    /*--slideshow--*/
+    .banner
+    {
+        height: 80rem;
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "name": "footer",
+    "type": "footer",
+    "sections": {
+      "footer": {
+        "type":  "footer",
+        "blocks": {
+          "column1": {
+            "type": "logo",
+            "settings": {
+            }
+          },
+          "column2": {
+            "type": "featured",
+            "settings": {
+            }
+          },
+          "column3": {
+            "type": "link_list",
+            "settings": {
+            }
+          },
+          "column4": {
+            "type": "contact",
+            "settings": {
+            }
+          },
+          "column5": {
+            "type": "social",
+            "settings": {
+            }
+          },
+          "column6":
+        {
+            "type": "form",
+            "settings":{
+                
+            }
+        }
+        },
+        "block_order": [
+        "column1",
+        "column2",
+        "column3",
+        "column4",
+        "column5",
+        "column6"
+        ]
+      }
+    },
+    "order": [
+      "footer"
+    ]
+}

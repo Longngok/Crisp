@@ -1,0 +1,365 @@
+/*--display--*/
+.d-flex
+{
+    display: flex;
+}
+
+.flex__cl
+{
+    flex-direction: column;
+}
+
+.d-grid
+{
+    display: grid;
+}
+
+.d-block
+{
+    display: block;
+}
+
+.d-iblock
+{
+    display: inline-block;
+}
+
+.d-none
+{
+    display: none;
+}
+
+.a-item--ctr
+{
+    align-items: center;
+}
+
+.j-content--sb
+{
+    justify-content: space-between;
+}
+
+.j-content--ctr
+{
+    justify-content: center;
+}
+
+.j-content--end
+{
+    justify-content: end;
+}
+
+.p-item--ctr
+{
+    place-items: center;
+}
+
+/*--position--*/
+.p-absolute
+{
+    position: absolute;
+}
+
+.p-relative
+{
+    position: relative;
+}
+
+.top--0
+{
+    top: 0;
+}
+
+.top--30
+{
+    top: 3rem;
+}
+
+.top--50
+{
+    top: 5rem;
+}
+
+.left--0
+{
+    left: 0;
+}
+
+.right--0
+{
+    right: 0;
+}
+
+.bottom--0
+{
+    bottom: 0;
+}
+
+.bottom--11
+{
+    bottom: 1.1rem;
+}
+
+.left--14
+{
+    left: 1.4rem;
+}
+
+.right--14
+{
+    right: 1.4rem;
+}
+
+.z-index--1
+{
+    z-index: 1;
+}
+
+/*--color--*/
+.bg__clr--primary
+{
+    background-color: var(--color-primary);
+}
+
+.bg__clr--danger
+{
+    background-color: var(--color-danger);
+}
+
+.c-secondary
+{
+    color: var(--color-secondary);
+}
+
+/*--spacing--*/
+.width--100pc
+{
+    width: 100%;
+}
+
+.width--100vw
+{
+    width: 100vw;
+}
+
+.height--100pc
+{
+    height: 100%;
+}
+
+.wh-14
+{
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.xs-mwidth--122
+{
+    max-width: 12.2rem;
+}
+
+.xs-mwidth--137
+{
+    max-width: 13.7rem;
+}
+
+.mt--30
+{
+    margin-top: 3rem;
+}
+
+.mb--14
+{
+    margin-bottom: 1.4rem;
+}
+
+/*--gap--*/
+.gap--8
+{
+    gap: .8rem;
+}
+
+.xs-gap--15
+{
+    gap: 1.5rem;
+}
+
+.xs-gap--24
+{
+    gap: 2.4rem;
+}
+
+/*--padding--*/
+.padding--14
+{
+    padding: 1.4rem;
+}
+
+.p__block--10
+{
+    padding-block: 1rem;
+}
+
+.p__inline--ini
+{
+    padding-inline: initial;
+}
+
+.p__inline--10
+{
+    padding-inline: 1rem;
+}
+
+.p__block-17
+{
+    padding: 1.7rem;
+}
+
+/*--another--*/
+.l-style--none
+{
+    list-style: none;
+}
+
+.t-align--ctr
+{
+    text-align: center;
+}
+
+.t-decor--none
+{
+    text-decoration: none;
+}
+
+.oflow--hidden
+{
+    overflow: hidden;
+}
+
+.trans--3s
+{
+    transition: .3s;
+}
+
+.objfit--cv
+{
+    object-fit: cover;
+}
+
+/*--btn--*/
+.btn
+{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn__icon
+{
+    background-color: transparent;
+    border: none;
+}
+
+/*--cube--*/
+.rectangle__sm
+{
+    aspect-ratio:  0.664;
+}
+
+.rectangle__xs
+{
+    aspect-ratio:  0.671;
+}
+
+@media (min-width: 768px) {
+    .lg-d-none
+    {
+        display: none;
+    }
+
+    .lg-d-grid
+    {
+        display: grid;
+    }
+
+    .lg-d-flex
+    {
+        display: flex;
+    }
+
+    .lg-d-block
+    {
+        display: block;
+    }
+
+    .lg-j-content--str
+    {
+        justify-content: start;
+    }
+
+    .lg-j-content--sb
+    {
+        justify-content: space-between;
+    }
+
+    .lg-j-content--end
+    {
+        justify-content: end;
+    }
+
+    .lg-flex__row
+    {
+        flex-direction: row;
+    }
+    
+    /*--Position--*/
+    .lg-p-static
+    {
+        position: static;
+    }
+
+    .lg-p-absolute
+    {
+        position: absolute;
+    }
+
+    .lg-order-1
+    {
+        order: 1;
+    }
+
+    /*--Spacing--*/
+    .lg-width--ini
+    {
+        width: initial;
+    }
+
+    .lg-width--50pc
+    {
+        width: 50%;
+    }
+
+    .lg-width--100pc
+    {
+        width: 100%;
+    }
+
+    .lg-p__block--36
+    {
+        padding-block: 3.6rem;
+    }
+
+    .lg-padding--15
+    {
+        padding: 1.5rem;
+    }
+
+    .lg-gap--8
+    {
+        gap: .8rem;
+    }
+
+    .lg-gap--28
+    {
+        gap: 2.8rem;
+    }
+}

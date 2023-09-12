@@ -1,0 +1,146 @@
+<div class="bg__clr color-{{ section.settings.color_scheme }}">
+  <div class="container p__block--10 lg-p__block--36 p-relative">
+    <div class="d-grid xs-4--column xs-gap--14 lg-gap--30 a-item--ctr lg-d-flex lg-j-content--sb">
+      <div id="togglebar" class="grid__item xs-grid__span1 lg-d-none">
+        <button class="btn btn__icon btn-toggle open">
+          {% render 'icon-hamburger' %}
+        </button>
+        <button class="btn btn__icon btn-toggle close trans--3s" style="display: none;">
+          {% render 'icon-close' %}
+        </button>
+      </div>
+      <div class="grid__item xs-grid__span2">
+        <div class="d-flex j-content--ctr">
+          <a href="{{ routes.root_url }}" class="d-grid p-item--ctr logo__size">
+            {% if section.settings.logo != blank %}
+              <img
+                src="{{ section.settings.logo | image_url }}"
+                alt="{{ section.settings.logo.alt }}"
+                class="width--100pc height--100pc">
+            {% else %}
+              <span class="btn__text--clr">{{ shop.name }}</span>
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      <nav class="p-absolute lg-p-static top--50 width--100pc lg-width--ini nav-menu dropdown-menu trans--3s z-index--1">
+        <ul class="d-flex flex__cl lg-flex__row xs-gap--24 lg-gap--28 l-style--none width--100pc bg__clr nav__padding a-item--ctr j-content--ctr lg-j-content--str">
+          <li class="d-flex lg-order-1">
+            <form class="d-flex search__box" action="{{ routes.search_url }}">
+              <div class="lg-p-absolute width--100pc left--0 input-show trans--3s lg-padding--15 bg__clr d-flex a-item--ctr j-content--ctr">
+                <input
+                  class="width--100pc lg-width--50pc padding--14"
+                  type="text"
+                  placeholder="Search"
+                  name="q"
+                  value="{{ search.terms | escape }}">
+              </div>
+              <div class="d-none lg-d-flex a-item--ctr lg-gap--8" onclick="toggleSearchInput()">
+                <button type="button" class="btn btn__icon">
+                  {% render 'icon-search' %}
+                </button>
+                <span class="text__clr">Search</span>
+              </div>
+              <input
+                class="search__submit lg-d-none"
+                type="submit"
+                value="FIND">
+            </form>
+          </li>
+          {% for link in section.settings.menu.links %}
+            <li class="">
+              <a class="text__clr menu-link t-decor--none" href="{{ link.url }}">
+                {{ link.title | upcase }}
+              </a>
+              {% if link.links.size > 0 %}
+                <ul class="">
+                  {% for child_link in link.links %}
+                    <li class="menu-link">
+                      <a class="t-decor--none" href="{{ child_link.url }}">{{ child_link.title | upcase }}</a>
+                      {% if child_link.links.size > 0 %}
+                        <ul class="">
+                          {% for grandchild_link in child_link.links %}
+                            <li class="menu-link">
+                              <a class="t-decor--none" href="{{ grandchild_link.url }}">{{ grandchild_link.title | upcase }}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <div class="grid__item xs-grid__span1">
+        <div class="d-flex j-content--end lg-gap--30">
+          <div class="d-none lg-d-flex lg-gap--12 a-item--ctr">
+            <a class="text__clr t-decor--none" href="">
+              sign in
+            </a>
+            <a class="text__clr t-decor--none" href="">
+              create an account
+            </a>
+          </div>
+          <div class="d-flex xs-gap--15 lg-gap--20 a-item--ctr j-content--end">
+            <button class="lg-d-none btn btn__icon">
+              {% render 'icon-search' %}
+            </button>
+            {% render 'icon-heart' %}
+            <div class="p-relative d-flex lg-gap--11">
+              <button class="btn btn__icon">
+                {% render 'icon-cart' %}
+              </button>
+              {% if cart.item_count > 0 %}
+                <div class="d-grid p-item--ctr p-absolute cart__count bg__clr--danger wh-14 lg-d-none">
+                  <span class="text__clr">
+                    {{ cart.item_count }}
+                  </span>
+                </div>
+              {% endif %}
+              <div class="d-none lg-d-block text__clr">
+                {% if cart.item_count > 0 %}
+                  <span class="d-block">{{ cart.item_count }} item(s)</span>
+                {% else %}
+                  <span class="d-block">Shopping Cart</span>
+                {% endif %}
+                <span class="d-block">
+                  {{ cart.total_price | money }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+{% schema %}
+  {
+    "name": "Header",
+    "tag": "header",
+    "class": "header",
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "default": "scheme_1",
+        "label": "Color Scheme"
+      }, {
+        "type": "link_list",
+        "id": "menu",
+        "default": "main-menu",
+        "label": "Header Menu"
+      }, {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Image"
+      }
+    ]
+  }
+{% endschema %}

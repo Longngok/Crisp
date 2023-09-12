@@ -1,0 +1,131 @@
+html{
+    font-size: 62.5%;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    color: var(--color-primary);
+    font-weight: 400;
+    font-family: var(--body-font);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4
+{
+    font-family: var(--header-font);
+}
+
+.container
+{
+    margin: 0 auto;
+    padding-inline: var(--ctpi);
+    transition: padding 0.3s;
+}
+
+/*--header--*/
+.logo__size
+{
+    height: 3rem;
+    width: 6.6rem;
+}
+
+.cart__count
+{
+    left: .9rem;
+    bottom: 1.1rem;
+}
+
+.nav__padding
+{
+    padding: 1.3rem 1.2rem 3rem 1.6rem;
+}
+
+.btn__close
+{
+    padding: 1.8rem 2.8rem 1.7rem 1.6rem;
+    background-color: var(--color-primary);
+    height: 5rem;
+}
+
+.dropdown-menu {
+    left: -100%;
+}
+  
+.dropdown-menu.active {
+    left: 0;
+}
+
+/*--slideshow--*/
+.banner
+{
+    height: 49.2rem;
+}
+
+.banner-images {
+    transition: transform 0.3s ease;
+}
+
+.container__dots
+{
+    bottom: 2.2rem;
+    left: 0;
+    right: 0;
+}
+
+.btn__dot {
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid var(--color-grey);
+    transition: background-color 0.6s ease;
+    background-color: transparent;
+}
+  
+.btn__dot.active
+{
+    border: none;
+    background-color: var(--color-primary);
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+/*--liquid custome--*/
+.bg__img
+{
+    background-image: var(--bg-img);
+}
+
+.bg__clr
+{
+    background-color: var(--bg-clr);
+}
+
+.text__clr
+{
+    color: var(--text-clr);
+}
+
+.btn__bg--clr
+{
+    background-color: var(--btn-bg-clr);
+}
+
+.btn__text--clr
+{
+    color: var(--btn-text-clr);
+}
+
+.svg__stroke
+{
+    stroke: var(--text-clr);
+}
+
+.svg__fill
+{
+    fill: var(--text-clr);
+}

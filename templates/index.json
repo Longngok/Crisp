@@ -1,0 +1,46 @@
+{
+    "sections": {
+        "richtext":{
+            "type": "richtext"
+        },
+        "multicollapse":{
+            "type": "multicollapse",
+            "blocks": {
+              "card1":{
+                "type": "card1"
+              },
+              "card2":{
+                "type": "card2"
+              },
+              "card3":{
+                "type": "card3"
+              }
+            },
+            "block_order": [
+                "card1",
+                "card2",
+                "card3"
+            ]
+        },
+        "slideshow":{
+          "type": "slideshow",
+          "blocks": {
+            "image1":{
+              "type": "image"
+            },
+            "image2":{
+              "type": "image"
+            }
+          },
+          "block_order": [
+            "image1",
+            "image2"
+          ]
+        }
+    },
+    "order": [
+        "richtext",
+        "multicollapse",
+        "slideshow"
+    ]
+}
