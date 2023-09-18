@@ -93,6 +93,11 @@
     {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .lg-4-column
+    {
+        grid-template-columns: repeat(4,1fr);
+    }
     
     .lg-18-column
     {
@@ -114,7 +119,7 @@
         grid-column: span 3;
     }
 
-    .lg-grid__span4
+    .lg-occupies-4column
     {
         grid-column: span 4;
     }
@@ -157,35 +162,5 @@
     .lg-grid__rspan2
     {
         grid-row: span 2;
-    }
-
-    .lg-column
-    {
-        grid-column: var(--lg-cl);
-    }
-
-    .lg-row
-    {
-        grid-row: var(--lg-row);
-    }
-
-    .lg-column
-    {
-        grid-template-columns: var(--lg-col);
-    }
-
-    .xs-column
-    {
-        grid-template-columns: var(--xs-col);
-    }
-
-    .lg-row
-    {
-        grid-template-rows: var(--lg-row);
-    }
-
-    .xs-row
-    {
-        grid-template-rows: var(--xs-row);
     }
 }

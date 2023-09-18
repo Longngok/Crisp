@@ -13,8 +13,8 @@
           {% endif %}
           <div class="p-absolute left-0 right-0 top-0 bottom-0">
             <div class="d-grid lg-2-column xs-gap--19 lg-gap-29">
-              <div class="d-grid xs-4-column lg-grid-custome lg-order-1">
-                <div class="grid__item xs-occupies-2column d-flex align-items-center justify-end  xs-grid__row1 width-100pc height-100pc">
+              <div class="d-grid grid-column lg-grid-custome lg-order-1">
+                <div class="grid__item xs-occupies-2column d-flex align-items-center justify-end xs-grid__row1 width-100pc height-100pc">
                   {% if block.settings.img1 != blank %}
                     <img
                       class="objectfit-cover slide__img slide__img--sm"
@@ -37,7 +37,7 @@
               </div>
               <div class="grid-item d-flex align-items-center justify-center">
                 <div class="text-align-center">
-                  <h2 class="slide__content heading" style="-lg-heading-fs: {{ section.settings.heading-fs }}">
+                  <h2 class="slide__content xs-heading lg-heading" style="--lg-heading-fs: {{ section.settings.lg-heading-fs }}; --xs-heading-fs: {{ section.settings.xs-heading-fs }}">
                     {{ block.settings.heading | upcase }}
                   </h2>
                   {% if block.settings.button_label != blank %}
@@ -80,12 +80,20 @@
         "default": "background-1"
       }, {
         "type": "range",
-        "id": "heading-fs",
+        "id": "lg-heading-fs",
         "min": 1.8,
         "max": 9,
         "step": 0.1,
         "label": "Desktop heading",
         "default": 5
+      }, {
+        "type": "range",
+        "id": "xs-heading-fs",
+        "min": 1.8,
+        "max": 3.2,
+        "step": 0.1,
+        "label": "Mobile heading",
+        "default": 2
       }
     ],
     "blocks": [

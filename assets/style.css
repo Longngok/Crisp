@@ -14,15 +14,18 @@ body
     color: var(--color-primary);
     font-weight: var(--font-body-weight);
     font-family: var(--body-font);
-    font-size: calc(var(--font-body-scale) * var(--body-font-size));
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, .xs-heading, .lg-heading
+.font-size
+{
+    font-size: calc(var(--font-body-scale) * var(--body-font-size));
+}
+
+h1, h2, h3, h4, h5, .oswald
 {
     font-family: var(--header-font);
     font-weight: var(--font-heading-weight);
-    font-size: calc(var(--font-heading-scale) * var(--xs-heading-fs));
 }
 
 .container
@@ -136,8 +139,8 @@ h1, h2, h3, h4, h5, .xs-heading, .lg-heading
 /*--slideshow--*/
 .banner
 {
-    height: 49.2rem;
     --ctpi: 0;
+    height: 492px;
 }
 
 .slideshow__btns
@@ -232,4 +235,35 @@ h1, h2, h3, h4, h5, .xs-heading, .lg-heading
 .card__body--position3
 {
     left: 3.1rem;
+}
+
+.sale-tag
+{
+    z-index: 1;
+    top: 1rem;
+}
+
+.tabcontent:not(:first-child) {
+    display: none;
+}
+
+.filter-checkbox
+{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--color-grey);
+}
+
+input[type="checkbox"]:checked
+{
+    background-color: var(--color-primary);
+}
+
+.product-filter__header
+{
+    margin-bottom: 1.6rem;
 }

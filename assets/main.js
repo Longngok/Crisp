@@ -120,47 +120,53 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //Filter
-//Hàm hiển thị collection và ẩn các collection khác
-function showCollection(collectionHandle) {
-  var i;
-  var tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+document.addEventListener('DOMContentLoaded', function() {
+  // Lấy danh sách các checkbox và divs
+  const checkboxes = document.querySelectorAll('.filter-checkbox');
+  const tabContents = document.querySelectorAll('.tabcontent');
 
-  var tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove("active");
-  }
+  // Kiểm tra checkbox của tab đầu tiên mặc định
+  const defaultCheckbox = checkboxes[0];
+  defaultCheckbox.checked = true;
 
-  document.getElementById(collectionHandle).style.display = "block";
-  event.currentTarget.classList.add("active");
-}
+  // Hiển thị div tab đầu tiên mặc định
+  const defaultTabContent = tabContents[0];
+  defaultTabContent.style.display = 'grid';
 
-// Mặc định hiển thị tab đầu tiên khi trang được tải
-document.getElementsByClassName("tablink")[0].click();
+  // Thêm sự kiện 'click' cho từng checkbox
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', function(event) {
+      // Kiểm tra xem checkbox đã được kiểm tra (checked) hay không
+      const isChecked = this.checked;
+
+      if (!isChecked) {
+        // Nếu checkbox đã kiểm tra, hủy sự kiện click và không cho bỏ chọn
+        event.preventDefault();
+      } else {
+        // Lấy giá trị của checkbox và tìm div tương ứng
+        const collectionHandle = this.getAttribute('data-collection-handle');
+        const tabContent = document.getElementById(collectionHandle);
+
+        // Ẩn tất cả các divs
+        tabContents.forEach((content) => {
+          content.style.display = 'none';
+        });
+
+        // Hiển thị div tương ứng nếu checkbox được chọn
+        tabContent.style.display = 'grid';
+
+        // Bỏ chọn tất cả các checkbox ngoại trừ checkbox hiện tại
+        checkboxes.forEach((otherCheckbox) => {
+          if (otherCheckbox !== this) {
+            otherCheckbox.checked = false;
+          }
+        });
+      }
+    });
+  });
+});
 
 
-// Hàm hiển thị collection và ẩn các collection khác
-// function showCollection(collectionHandle) {
-//   var i;
-//   var tabcontent = document.getElementsByClassName("tabcontent");
-//   for (i = 0; i < tabcontent.length; i++) {
-//     tabcontent[i].style.display = "none";
-//   }
-
-//   var tablinks = document.getElementsByClassName("tablink");
-//   for (i = 0; i < tablinks.length; i++) {
-//     tablinks[i].classList.remove("active");
-//   }
-
-//   document.getElementById(collectionHandle).style.display = "block";
-//   var activeTablink = document.querySelector("input.tablink:checked + label");
-//   activeTablink.classList.add("active");
-// }
-
-// // Mặc định hiển thị tab đầu tiên khi trang được tải
-// document.querySelector("input.tablink:checked + label").click();
 
 
 

@@ -1,0 +1,74 @@
+{% liquid
+  assign first-item = '--lg-cl: 1/5'
+  assign seccond-item = '--lg-cl: 5/19'
+  assign lg-gutter = '--lg-gutter-custom: 2.6'
+%}
+
+<div class="container">
+  <div class="d-grid xs-4-column lg-18-column xs-gap-14 lg-gap-30">
+    <div class="product-filter grid__item xs-column lg-column border-right-muted" style="{{ first-item }}">
+      <h2 class="product-filter__header oswald">Shop Some Wear:</h2>
+      <form class="d-none lg-d-flex flex-column lg-gap-20" id="filter-form">
+        {% for collection in collections %}
+          {% assign collectionTitle = collection.title %}
+          <div>
+            <input
+              type="checkbox"
+              class="filter-checkbox"
+              value="{{ collection.handle }}"
+              data-collection-handle="{{ collection.handle }}">
+            <label for="checkbox">
+              {{ collectionTitle }}
+            </label>
+          </div>
+        {% endfor %}
+      </form>
+    </div>
+    <div class="grid__item xs-column lg-column oswald" style="{{ seccond-item }}">
+      {% for collection in collections %}
+        <div
+          id="{{ collection.handle }}"
+          class="tabcontent lg-4-column xs-column-gap lg-column-gap"
+          style="">
+          {% for product in collection.products %}
+            {% liquid
+              assign oldPrice = product.compare_at_price
+              assign newPrice = product.price 
+              assign totalSale = oldPrice | minus: newPrice | times: 100.0 | divided_by: oldPrice | round | prepend: '-'  | append: '%'  
+            %}
+            <div class="card p-relative">
+              {% if product.compare_at_price %}
+                <span class="background-primary c-secondary p-absolute left-0 sale-tag" style="--xs-heading-fs: 1.2; --lg-heading-fs: 1.4">{{ totalSale }}</span>
+              {% endif %}
+              <div class="card__img p-relative cube-content">
+                <img
+                  class="objectfit-cover width-100pc rectangle"
+                  src="{{ product.featured_image | image_url }}"
+                  alt="{{ product.featured_image.alt }}">
+              </div>
+              <div class="card__body">
+                <span>{{ collectionTitle }}</span>
+                <h3>{{ product.title }}</h3>
+                {% if product.compare_at_price %}
+                  <span class="new-price">{{ product.price | money }}</span>
+                  <span class="old-price">{{ product.compare_at_price | money }}</span>
+                {% else %}
+                  <span class="">{{ product.price | money }}</span>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Product Filter",
+    "tag": "section",
+    "settings": []
+  }
+{% endschema %}

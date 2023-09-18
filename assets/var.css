@@ -7,12 +7,14 @@
     --color-danger: #EB5757;
     --color-muted: #C4C4C4;
     --color-grey: #828282;
-    
-    --body-font-size: 1.4;
-    --gutter-base: 1rem;
-    --gutter: calc(var(--gutter-base) * var(--gutter-custom))
 
-    @media (min-width: 768px) {
-        --body-font-size: 1.8;
+    --gutter-base: 1rem;
+    --gutter: calc(var(--gutter-base) * var(--xs-gutter-custom))
+}
+
+@media (min-width: 992px) {
+    :root
+    {
+        --gutter: calc(var(--gutter-base) * var(--lg-gutter-custom))
     }
 }

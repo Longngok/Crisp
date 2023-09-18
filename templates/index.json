@@ -40,7 +40,11 @@
         "list-image":{
           "type": "list-image"
         },
-        "product-list":{
+        "product-filter":{
+          "type": "product-filter"
+        },
+        "product-list":
+        {
           "type": "product-list"
         }
     },
@@ -49,6 +53,7 @@
         "multicollect",
         "slideshow",
         "list-image",
+        "product-filter",
         "product-list"
     ]
 }

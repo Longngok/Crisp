@@ -33,26 +33,40 @@
     fill: var(--text-color);
 }
 
-.body-text
-{
-    font-size: calc(var(--font-body-scale) * var(--body-font-size));
-}
-
 .xs-padding-block
 {
-    padding-block: var(--xs-pb);
-}
-/*--Grid--*/
-.gutter-vertical
-{
-    column-gap: var(--gutter);
+    padding-block: calc(var(--gutter-base) * var(--xs-pb));
 }
 
+/*--Grid--*/
+.xs-column-gap
+{
+    column-gap: var(--xs-gutter-custom);
+}
 
 @media (min-width: 992px) {
     .lg-padding-block
     {
-        padding-block: var(--lg-pb);
+        padding-block: calc(var(--gutter-base) * var(--lg-pb));
+    }
+    
+    .lg-column
+    {
+        grid-column: var(--lg-cl);
+    }
+    
+    .lg-row
+    {
+        grid-row: var(--lg-row);
     }
 
+    .lg-column-gap
+    {
+        column-gap: var(--gutter);
+    }
+
+    .lg-row-gap
+    {
+        row-gap: var(--lg-gutter-custom);
+    }
 }
