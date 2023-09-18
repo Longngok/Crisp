@@ -1,0 +1,15 @@
+.chose-brand__title{
+  display: none;
+}
+.chose-brand{
+  padding-top: 12px;
+}
+.brand__border{
+  border: 2px solid #C4C4C4;
+}
+.brand__image{
+  height: 55px;
+}
+.brand__col{
+  margin-bottom: 10px;
+}

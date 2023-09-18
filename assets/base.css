@@ -1,0 +1,18 @@
+.bgr-imgplaceholder{
+  background-color: rgb(247, 247, 247);
+}
+::placeholder{
+  color: var(--color-text);
+}
+.background-color {
+  background-color: var(--color-background);
+}
+.color-text{
+  color: var(--color-text);
+}
+.btn-primary{
+  background-color: var( --color-button);
+  color: var(--color-button_label);
+  border: 2px solid var(--color-button_border);
+}
+

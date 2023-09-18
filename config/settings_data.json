@@ -5,24 +5,22 @@
       "color_schemes": {
         "background-1": {
           "settings": {
-            "background": "#FFFFFF",
+            "background": "#F3F3F3",
             "background_gradient": "",
             "text": "#121212",
-            "button": "#121212",
-            "button_label": "#FFFFFF",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "primary_button": "#121212",
+            "on_primary_button": "#F3F3F3",
+            "primary_button_border": "#F3F3F3"
           }
         },
         "background-2": {
           "settings": {
-            "background": "#F3F3F3",
+            "background": "#FFFFFF",
             "background_gradient": "",
             "text": "#121212",
-            "button": "#121212",
-            "button_label": "#F3F3F3",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "primary_button": "#121212",
+            "on_primary_button": "#121212",
+            "primary_button_border": "#121212"
           }
         },
         "inverse": {
@@ -30,10 +28,9 @@
             "background": "#242833",
             "background_gradient": "",
             "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#000000",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "primary_button": "#FFFFFF",
+            "on_primary_button": "#000000",
+            "primary_button_border": "#000000"
           }
         },
         "accent-1": {
@@ -41,10 +38,9 @@
             "background": "#121212",
             "background_gradient": "",
             "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#121212",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "primary_button": "#FFFFFF",
+            "on_primary_button": "#121212",
+            "primary_button_border": "#121212"
           }
         },
         "accent-2": {
@@ -52,14 +48,14 @@
             "background": "#334FB4",
             "background_gradient": "",
             "text": "#FFFFFF",
-            "button": "#FFFFFF",
+            "primary_button": "#FFFFFF",
             "button_label": "#334FB4",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "on_primary_button": "#FFFFFF",
+            "primary_button_border": "#FFFFFF"
           }
         }
       },
-      "header_font": "oswald_n5",
+      "header_font": "oswald_n6", 
       "heading_scale": 100,
       "body_font": "roboto_n3",
       "body_scale": 100

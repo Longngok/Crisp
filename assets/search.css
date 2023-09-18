@@ -1,0 +1,27 @@
+.bopup__search{
+  min-height: 115px;
+}
+.bopup__search--w{
+  width:100%;
+  top: 30%;
+}
+.input__search{
+  padding-inline: 15px;
+}
+.bopup__search {
+  display: none;
+}
+.menu-show, 
+.open-menu{
+  display: block;
+}
+.close__search{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.close__search svg{
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}

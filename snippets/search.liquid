@@ -1,0 +1,17 @@
+{% style %}  
+  .search form{
+    border:1px solid var(--color-text);
+    
+  }
+{% endstyle %} 
+<div class="search">
+  <form action="/search" method="get" class="bd-radius-10 p-relative d-flex">
+    <input type="text" name="q" 
+      placeholder="Search products..." 
+      value="{{ search.terms | escape }}" required
+      class="w-100 bd-radius-10 color-text border-0 input__search gradient">
+    <button type="submit" class="bd-radius-10 gradient button__search d-flex center-xs  middle-xs right-0 top-0 p-absolute border-0 h-100">
+      {% render 'icon-search' %}
+    </button>
+  </form>
+</div>

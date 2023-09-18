@@ -1,0 +1,89 @@
+{% comment %} <div class="container">
+<div class="d-grid lg-18--column">
+<div class="grid__item lg-grid__span4">
+<h2>Shop Some Wear:</h2>
+<form id="filter-form">
+{% for collection in collections %}
+{% assign collectionTitle = collection.title %}
+<div>
+<input
+type="checkbox"
+class="filter-checkbox"
+value="{{ collection.handle }}"
+data-collection-handle="{{ collection.handle }}">
+<label for="checkbox">
+{{ collectionTitle }}
+</label>
+</div>
+{% endfor %}
+</form>
+</div>
+<div class="grid__item lg-grid__span14">
+{% for product in collection.products %}
+<div class="card filterable">
+<img src="{{ product.featured_image | image_url }}" alt="">
+<div class="card-body">
+<span>{{ collectionTitle }}</span>
+<h3>{{ product.title }}</h3>
+<span>{{ product.price | money }}</span>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div> {% endcomment %}
+
+
+
+<div class="tabs">
+  {% for collection in collections %}
+    <button class="tablink" onclick="showCollection('{{ collection.handle }}')">{{ collection.title }}</button>
+  {% endfor %}
+</div>
+
+{% for collection in collections %}
+  <div id="{{ collection.handle }}" class="tabcontent">
+    {% for product in collection.products %}
+      <img src="{{ product.featured_image | image_url }}" alt="">
+      <div class="card-body">
+        <span>{{ collectionTitle }}</span>
+        <h3>{{ product.title }}</h3>
+        <span>{{ product.price | money }}</span>
+      </div>
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.price | money }}</p>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+
+{% comment %} <div class="tabs">
+{% for collection in collections %}
+<input
+type="radio"
+class="tablink"
+name="collection-tab"
+id="{{ collection.handle }}"
+data-collection-handle="{{ collection.handle }}">
+<label for="{{ collection.handle }}">{{ collection.title }}</label>
+{% endfor %}
+</div>
+
+{% for collection in collections %}
+<div id="{{ collection.handle }}" class="tabcontent">
+{% for product in collection.products %}
+<!-- Hiển thị thông tin sản phẩm ở đây, ví dụ: -->
+<h2>{{ product.title }}</h2>
+<p>{{ product.price | money }}</p>
+{% endfor %}
+</div>
+{% endfor %} {% endcomment %}
+
+
+{% schema %}
+  {
+    "name": "Product List",
+    "tag": "section",
+    "settings": []
+  }
+{% endschema %}

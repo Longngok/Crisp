@@ -3,8 +3,8 @@
         "richtext":{
             "type": "richtext"
         },
-        "multicollapse":{
-            "type": "multicollapse",
+        "multicollect":{
+            "type": "multicollect",
             "blocks": {
               "card1":{
                 "type": "card1"
@@ -36,11 +36,19 @@
             "image1",
             "image2"
           ]
+        },
+        "list-image":{
+          "type": "list-image"
+        },
+        "product-list":{
+          "type": "product-list"
         }
     },
     "order": [
         "richtext",
-        "multicollapse",
-        "slideshow"
+        "multicollect",
+        "slideshow",
+        "list-image",
+        "product-list"
     ]
 }

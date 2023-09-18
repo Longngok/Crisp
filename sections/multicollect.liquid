@@ -1,0 +1,267 @@
+<div class="container multicollect color-{{ section.settings.color_scheme }}">
+  <div class="d-grid xs-4-column lg-18-column multicollect__gap lg-gap-29">
+    {% for blocks in section.blocks %}
+      {% case blocks.type %}
+        {% when 'card1' %}
+        <div class="grid__item p-relative xs-column lg-column" style="--xs-cl: 1/5 ;--lg-cl: 1/10">
+          <div class="card p-relative">
+            <div class="card__img card__img--xs">
+              {% if blocks.settings.img != blank %}
+                <img
+                  class="width-100pc height-100pc objectfit-cover"
+                  src="{{ blocks.settings.img | image_url }}"
+                  alt="{{ blocks.settings.img.alt }}">
+              {% else %}
+                {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg width-100pc height-100pc' }}
+              {% endif %}
+            </div>
+            <div class="card__body p-absolute card__body--position1 top-0 bottom-0 d-flex flex-column justify-center">
+              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading-fs: {{ blocks.settings.desktop_fs }}">
+                {{ blocks.settings.header | upcase }}
+              </h3>
+              <p>
+                {{ blocks.settings.content }}
+              </p>
+              {% if blocks.settings.button != blank %}
+                <div>
+                  <a class="btn btn__custome btn--lg text-decor-none heading xs-mt-9 lg-mt-51" href="{{ blocks.settings.button_link }}">
+                    {{ blocks.settings.button }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% when 'card2' %}
+        <div class="grid__item p-relative xs-column lg-column lg-row" style="--xs-cl: 1/5;--lg-cl: 10/19; --lg-row: 1/3">
+          <div class="card p-relative height-100pc">
+            <div class="card__img card__img--lg height-100pc width-100pc">
+              <img
+                class="width-100pc height-100pc objectfit-cover"
+                src="{{ blocks.settings.img | image_url }}"
+                alt="{{ blocks.settings.img.alt }}">
+            </div>
+            <div class="card__body card__body--position2 p-absolute">
+              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading-fs: {{ blocks.settings.desktop_fs }}">
+                {{ blocks.settings.header | upcase }}
+              </h3>
+              <p>
+                {{ blocks.settings.content }}
+              </p>
+              {% if blocks.settings.button != blank %}
+                <div>
+                  <a class="btn btn__custome btn--lg text-decor-none heading xs-mt-9 lg-mt-51" href="{{ blocks.settings.button_link }}">
+                    {{ blocks.settings.button }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% when 'card3' %}
+        <div class="grid__item p-relative xs-column lg-column" style="--xs-cl: 1/5;--lg-cl: 1/10">
+          <div class="card p-relative">
+            <div class="card__img card__img--xs">
+              <img
+                class="width-100pc height-100pc objectfit-cover"
+                src="{{ blocks.settings.img | image_url }}"
+                alt="{{ blocks.settings.img.alt }}">
+            </div>
+            <div class="card__body p-absolute card__body--position3 top-0 bottom-0 d-flex flex-column justify-center">
+              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading-fs: {{ blocks.settings.desktop_fs }}">
+                {{ blocks.settings.header | upcase }}
+              </h3>
+              <p>
+                {{ blocks.settings.content }}
+              </p>
+              {% if blocks.settings.button != blank %}
+                <div>
+                  <a class="btn btn__custome btn--lg text-decor-none heading xs-mt-9 lg-mt-51" href="{{ blocks.settings.button_link }}">
+                    {{ blocks.settings.button }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Multicollapse",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color",
+        "default": "background-1"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card1",
+        "name": "card 1",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "desktop_fs",
+            "min": 4.8,
+            "max": 9.6,
+            "step": 0.1,
+            "label": "Desktop Heading Size",
+            "default": 4.8
+          },
+          {
+            "type": "range",
+            "id": "mobile_fs",
+            "min": 1.6,
+            "max": 2.6,
+            "step": 0.1,
+            "label": "Mobile Heading Size",
+            "default": 1.6
+          },
+          {
+            "type": "inline_richtext",
+            "id": "header",
+            "label": "Heading",
+            "default": "Your title"
+          }, {
+            "type": "inline_richtext",
+            "id": "content",
+            "label": "content",
+            "default": "Your content"
+          }, {
+            "type": "text",
+            "id": "button",
+            "label": "Button label",
+            "default": "Shop now"
+          }, {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+        ]
+      }, {
+        "type": "card2",
+        "name": "card 2",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "desktop_fs",
+            "min": 4.8,
+            "max": 9.6,
+            "step": 0.1,
+            "label": "Desktop Heading Size",
+            "default": 4.8
+          },
+          {
+            "type": "range",
+            "id": "mobile_fs",
+            "min": 1.6,
+            "max": 2.6,
+            "step": 0.1,
+            "label": "Mobile Heading Size",
+            "default": 1.6
+          },
+          {
+            "type": "inline_richtext",
+            "id": "header",
+            "label": "Heading",
+            "default": "Your title"
+          }, {
+            "type": "inline_richtext",
+            "id": "content",
+            "label": "content",
+            "default": "Your content"
+          }, {
+            "type": "text",
+            "id": "button",
+            "label": "Button label",
+            "default": "Shop now"
+          }, {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+        ]
+      }, {
+        "type": "card3",
+        "name": "card 3",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "desktop_fs",
+            "min": 4.8,
+            "max": 9.6,
+            "step": 0.1,
+            "label": "Desktop Heading Size",
+            "default": 4.8
+          },
+          {
+            "type": "range",
+            "id": "mobile_fs",
+            "min": 1.6,
+            "max": 2.6,
+            "step": 0.1,
+            "label": "Mobile Heading Size",
+            "default": 1.6
+          },
+          {
+            "type": "inline_richtext",
+            "id": "header",
+            "label": "Heading",
+            "default": "Your title"
+          }, {
+            "type": "inline_richtext",
+            "id": "content",
+            "label": "content",
+            "default": "Your content"
+          }, {
+            "type": "text",
+            "id": "button",
+            "label": "Button label",
+            "default": "Shop now"
+          }, {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 3,
+    "presets": [
+      {
+        "name": "Multi Collapse",
+        "blocks": [
+          {
+            "type": "card1"
+          }, {
+            "type": "card2"
+          }, {
+            "type": "card3"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

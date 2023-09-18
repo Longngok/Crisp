@@ -1,0 +1,58 @@
+.background-img
+{
+    background-image: var(--background-img);
+}
+
+.background-color
+{
+    background-color: var(--background-color);
+}
+
+.text-color
+{
+    color: var(--text-color);
+}
+
+.btn-background-color
+{
+    background-color: var(--btn-background-color);
+}
+
+.btn-text-color
+{
+    color: var(--btn-text-color);
+}
+
+.svg-stroke
+{
+    stroke: var(--text-color);
+}
+
+.svg-fill
+{
+    fill: var(--text-color);
+}
+
+.body-text
+{
+    font-size: calc(var(--font-body-scale) * var(--body-font-size));
+}
+
+.xs-padding-block
+{
+    padding-block: var(--xs-pb);
+}
+/*--Grid--*/
+.gutter-vertical
+{
+    column-gap: var(--gutter);
+}
+
+
+@media (min-width: 992px) {
+    .lg-padding-block
+    {
+        padding-block: var(--lg-pb);
+    }
+
+}

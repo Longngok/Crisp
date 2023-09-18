@@ -1,0 +1,33 @@
+<style>
+  {% for scheme in settings.color_schemes %}
+    {% if forloop.index == 1 %}
+      : root, {% endif %}
+    .color-{{ scheme.id }}{
+      --background-color: {{ scheme.settings.background }}
+      ;
+      --text-color: {{ scheme.settings.text }}
+      ;
+      --btn-background-color: {{ scheme.settings.primary_button }}
+      ;
+      --btn-text-color: {{ scheme.settings.on_primary_button }}
+      ;
+      --btn-border-color: {{ scheme.settings.primary_button_border }}
+    }
+  {% endfor %}
+  {{ settings.type_header_font | font_face }}
+  {{ settings.type_body_font | font_face }}
+  :root  {
+    --header-font: {{ settings.type_header_font.family }}
+    , {{ settings.type_header_font.fallback_families }}
+    ;
+    --body-font: {{ settings.type_body_font.family }}
+    , {{ settings.type_body_font.fallback_families }}
+    ;
+    --font-heading-scale: {{ settings.heading_scale | divided_by: 100.0 | append: 'rem'  }}
+    ;
+    --font-body-scale: {{ settings.body_scale | divided_by: 100.0 | append: 'rem'  }}
+    ;
+    --font-heading-weight: {{ settings.type_header_font.weight }}
+    ;
+    --font-body-weight{{ settings.type_body_font.weight }}}
+</style>

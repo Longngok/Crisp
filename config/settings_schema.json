@@ -16,6 +16,12 @@
         "definition": [
           {
             "type": "color",
+            "id": "text",
+            "label": "Text color",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
             "id": "background",
             "label": "Background color",
             "default": "#FFFFFF"
@@ -25,40 +31,51 @@
             "id": "background_gradient",
             "label": "Background gradient"
           },
-          {
-            "type": "color",
-            "id": "text",
-            "label": "Color text",
-            "default": "#121212"
-          },
           { 
             "type": "color",
-            "id": "button",
+            "id": "primary_button",
             "label": "Button background",
             "default": "#121212"
           },
           {
             "type": "color",
-            "id": "button_label",
-            "label": "Button label",
+            "id": "on_primary_button",
+            "label": "Button text",
             "default": "#FFFFFF"
           },
           {
             "type": "color",
-            "id": "button_text",
-            "label": "Button Text",
+            "id": "primary_button_border",
+            "label": "Primary Button Border",
             "default": "#FFFFFF"
           },
           {
             "type": "color",
-            "id": "secondary_button_label",
-            "label": "color 4",
+            "id": "secondary_button",
+            "label": "Secondary Button"
+          },
+          {
+            "type": "color",
+            "id": "on_secondary_button",
+            "label": "On Secondary Button",
             "default": "#121212"
           },
           {
             "type": "color",
-            "id": "shadow",
-            "label": "color7",
+            "id": "secondary_button_border",
+            "label": "Secondary Button Border",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "icons",
+            "label": "Icons",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "links",
+            "label": "Links",
             "default": "#121212"
           }
         ],
@@ -68,14 +85,14 @@
             "solid": "background",
             "gradient": "background_gradient"
           },
-          "links": "secondary_button_label",
-          "icons": "text",
-          "primary_button": "button",
-          "on_primary_button": "button_label",
-          "primary_button_border": "button",
-          "secondary_button": "background",
-          "on_secondary_button": "secondary_button_label",
-          "secondary_button_border": "secondary_button_label"
+          "primary_button": "primary_button",
+          "on_primary_button": "on_primary_button",
+          "primary_button_border": "primary_button_border",
+          "secondary_button": "secondary_button",
+          "on_secondary_button": "on_secondary_button",
+          "secondary_button_border": "secondary_button_border",
+          "icons": "icons",
+          "links": "links"
         }
       }
     ]
@@ -90,7 +107,7 @@
       {
         "type": "font_picker",
         "id": "type_header_font",
-        "default": "oswald_n5",
+        "default": "oswald_n6",
         "label": "Header Font",
         "info": "Header Font"
       },

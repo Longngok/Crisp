@@ -1,0 +1,12 @@
+{% liquid 
+  assign logo = section.settings.logo
+%}
+<div class="header__logo">
+  <a href="{{ routes.root_url }}">
+      {% if logo != blank %}
+        <img src="{{ logo | image_url  }}" alt="">
+      {%- else -%}
+        <span class="h5 color-text">{{ shop.name }}</span>
+      {% endif %}
+  </a>
+</div>

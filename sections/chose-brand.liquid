@@ -1,0 +1,62 @@
+{% liquid 
+  assign col-flex = '--w-xl-7:7; --w-lg:3; --w-md:4; --w-xs:6;'
+%}
+<div class=" color-{{ section.settings.color_scheme }}">
+  <div class="ctnr-fluid">
+    <div class="chose-brand p-relative">
+      <div class="chose-brand__title">
+          <h3 class="h4 tt-up background-color color-text">
+            {{ section.settings.text }}
+          </h2>
+      </div>
+      <div class="chose-brand__image">
+        <div class="row">
+          {% for block in section.blocks %}
+          <div class="clm brand__col" style="{{ col-flex }}">
+            {% if block.settings.image != blank %}
+              <a href="" class = "brand__border brand__image d-block">
+                <img src=" {{ block.settings.image | image_url }}" alt="" class="h-100 w-100 ">
+              </a>
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg brand__image h-100 w-100 brand__border' }}
+            {% endif %} 
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Chose brands",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Heading",
+        "default": "Title"
+      },
+      { 
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "background-1"
+		  }
+    ],
+    "blocks":[
+      {
+        "type": "image",
+        "name": "Brand",
+        "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+        ]
+      }
+    ]
+  } 
+{% endschema %} 

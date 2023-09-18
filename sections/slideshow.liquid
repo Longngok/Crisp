@@ -1,73 +1,93 @@
-<div class="p-relative oflow--hidden height--100pc">
-  <div class="banner-images height--100pc d-flex">
-    {% for block in section.blocks %}
-      <div class="width--100pc p-relative">
-        {% if block.settings.img_bg != blank %}
-          <img
-            src="{{ block.settings.img_bg | image_url }}"
-            alt="{{ block.settings.img_bg.alt }}"
-            class="bg__style objfit--cv width--100vw height--100pc">
-        {%- else -%}
-          {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg bg__style objfit--cv width--100vw height--100pc' }}
-        {% endif %}
-        <div class="container p-absolute left--0 right--0 top--0 bottom--0">
-          <div class="d-grid lg-2--column xs-gap--19 mt--30">
-            <div class="d-grid xs-4--column xs-gap--14 lg-order-1">
-              <div class="d-flex a-item--ctr j-content--str grid__item xs-grid__span2 xs-grid__en3 xs-grid__row12 width--100pc height--100pc ml--57">
-                {% if block.settings.img1 != blank %}
-                  <img
-                    class="bg__style objfit--cv xs-mwidth--122 rectangle__xs"
-                    src="{{ block.settings.img1 | image_url }}"
-                    alt="{{ block.settings.img1.alt }}">
-                {% else %}
-                  {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg bg__style objfit--cv xs-mwidth--122 rectangle__xs' }}
-                {% endif %}
+<div class="container banner background-color color-{{ section.settings.color_scheme }}">
+  <div class="p-relative overflow-hidden height-100pc">
+    <div class="js-banner-images height-100pc d-flex transition-3s">
+      {% for block in section.blocks %}
+        <div class="width-100pc p-relative">
+          {% if block.settings.img_bg != blank %}
+            <img
+              src="{{ block.settings.img_bg | image_url }}"
+              alt="{{ block.settings.img_bg.alt }}"
+              class="objectfit-cover width-100vw height-100pc">
+          {%- else -%}
+            {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg objectfit-cover width-100vw height-100pc' }}
+          {% endif %}
+          <div class="p-absolute left-0 right-0 top-0 bottom-0">
+            <div class="d-grid lg-2-column xs-gap--19 lg-gap-29">
+              <div class="d-grid xs-4-column lg-grid-custome lg-order-1">
+                <div class="grid__item xs-occupies-2column d-flex align-items-center justify-end  xs-grid__row1 width-100pc height-100pc">
+                  {% if block.settings.img1 != blank %}
+                    <img
+                      class="objectfit-cover slide__img slide__img--sm"
+                      src="{{ block.settings.img1 | image_url }}"
+                      alt="{{ block.settings.img1.alt }}">
+                  {% else %}
+                    {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg objectfit-cover rectangle__xs' }}
+                  {% endif %}
+                </div>
+                <div class="grid__item xs-occupies-2column lg-occupies-1column xs-grid__row1">
+                  {% if block.settings.img2 != blank %}
+                    <img
+                      class="objectfit-cover slide__img slide__img--lg"
+                      src="{{ block.settings.img2 | image_url }}"
+                      alt="{{ block.settings.img2.alt }}">
+                  {% else %}
+                    {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg objectfit-cover width-100pc height-100pc rectangle__sm' }}
+                  {% endif %}
+                </div>
               </div>
-              <div class="d-flex j-content--end grid__item xs-grid__span2 xs-grid__en5 xs-grid__row12 width--100pc height--100pc ml--n57">
-                {% if block.settings.img2 != blank %}
-                  <img
-                    class="bg__style objfit--cv width--100pc height--100pc xs-mwidth--137 rectangle__sm"
-                    src="{{ block.settings.img2 | image_url }}"
-                    alt="{{ block.settings.img2.alt }}">
-                {% else %}
-                  {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg bg__style objfit--cv width--100pc height--100pc rectangle__sm' }}
-                {% endif %}
+              <div class="grid-item d-flex align-items-center justify-center">
+                <div class="text-align-center">
+                  <h2 class="slide__content heading" style="-lg-heading-fs: {{ section.settings.heading-fs }}">
+                    {{ block.settings.heading | upcase }}
+                  </h2>
+                  {% if block.settings.button_label != blank %}
+                    <a href="{{ block.settings.link }}" class="btn btn__custome btn__lg text-decor-none">
+                      {{ block.settings.button_label | upcase }}
+                    </a>
+                  {% endif %}
+                </div>
               </div>
-            </div>
-            <div class="t-align--ctr">
-              <h1 class="mb--14">
-                {{ block.settings.heading | upcase }}
-              </h1>
-              {% if block.settings.button_label != blank %}
-                <a href="{{ block.settings.link }}" class="btn btn-secondary btn-border--none t-decor--none padding-12-32">
-                  {{ block.settings.button_label | upcase }}
-                </a>
-              {% endif %}
             </div>
           </div>
         </div>
+      {% endfor %}
+    </div>
+    <div class="slideshow__btns p-absolute d-flex align-items-center justify-spacebtw">
+      <button class="btn btn__icon btn-prev lg-p-absolute lg-order-1">
+        {% render 'icon-prev' %}
+      </button>
+      <div class="container__dots d-flex align-items-center gap-8">
+        {% for block in section.blocks %}
+          <span class="btn btn__dot" onclick="showSlide({{ forloop.index0 }})"></span>
+        {% endfor %}
       </div>
-    {% endfor %}
-  </div>
-  <button class="btn btn__icon btn-prev p-absolute bottom--11 left--14 z-index--1">
-    {% render 'icon-prev' %}
-  </button>
-  <button class="btn btn__icon btn-next p-absolute bottom--11 right--14 z-index--1">
-    {% render 'icon-next' %}
-  </button>
-
-  <div class="p-absolute container__dots left--0 right--0 d-flex a-item--ctr j-content--ctr gap--8">
-    {% for block in section.blocks %}
-      <span class="btn btn__dot" onclick="showSlide({{ forloop.index0 }})"></span>
-    {% endfor %}
+      <button class="btn btn__icon btn-next lg-order-2">
+        {% render 'icon-next' %}
+      </button>
+    </div>
   </div>
 </div>
+
 {% schema %}
   {
     "name": "Slide Show",
     "tag": "section",
-    "class": "banner",
-    "settings": [],
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "color",
+        "default": "background-1"
+      }, {
+        "type": "range",
+        "id": "heading-fs",
+        "min": 1.8,
+        "max": 9,
+        "step": 0.1,
+        "label": "Desktop heading",
+        "default": 5
+      }
+    ],
     "blocks": [
       {
         "type": "image",

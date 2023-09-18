@@ -1,0 +1,60 @@
+<div class="container list-image">
+  <div class="list-image__header justify-center d-none lg-d-flex">
+    <h2 class="list-image__title lg-heading" style="--lg-heading-fs: 2.4">{{ section.settings.header | upcase }}</h2>
+  </div>
+  <div class="d-grid slideshow__content xs-4-column lg-d-flex lg-gap-29">
+    {% for blocks in section.blocks %}
+      <div class="grid__item xs-occupies-2column" style="aspect-ratio: 5/3;">
+        {% if blocks.settings.image != blank %}
+          <img
+            class="width-100pc height-100pc list-image__image"
+            src="{{ blocks.settings.image | image_url }}"
+            alt="{{ blocks.settings.image.alt }}">
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg width-100pc height-100pc list-image__image' }}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "List Image",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "header",
+        "label": "Header",
+        "default": "Choose your brand"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "list image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": " Image"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 8,
+    "presets": [
+      {
+        "name": "List Image",
+        "blocks": [
+          {
+            "type": "image"
+          }, {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

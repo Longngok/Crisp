@@ -1,0 +1,53 @@
+.header__logo{
+  padding: 9px 0px;
+}
+.menu-link{
+  padding-inline: 14px;
+}
+.header__search{
+  padding-left: 15px;
+}
+.header__search svg{
+  margin-right: 8px;
+}
+.header__account li{
+  margin-right: 12px;
+}
+.header__icon{
+  padding-left: 18px;
+}
+.header__icon--cart{
+  margin-left: 20px;
+}
+.btn__cart svg{
+  margin-right: 11px;
+}
+.btn__cart span:nth-child(1){
+  font-size: var(--font-size--12);
+}
+.header__icon--heart button{
+  margin-top: 5px;
+}
+.input__search{
+  height: 45px;
+}
+.button__search{
+  width: 45px;
+}
+.header__icon-menu,
+.header__icon--search-mobile{
+  display: block;
+}
+.header__menu,
+.header__search span,
+.header__account,
+.btn__cart div,
+.header__search--desktop, 
+.header__icon--heart{
+  display: none;
+}
+.header-icon,
+.header__icon-menu{
+  flex: 1 1 0%;
+  justify-content: end;
+}
