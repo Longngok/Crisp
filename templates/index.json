@@ -38,7 +38,43 @@
           ]
         },
         "list-image":{
-          "type": "list-image"
+          "type": "list-image",
+          "blocks": {
+            "image1":{
+              "type": "image"
+            },
+            "image2":{
+              "type": "image"
+            },
+            "image3":{
+              "type": "image"
+            },
+            "image4":{
+              "type": "image"
+            },
+            "image5":{
+              "type": "image"
+            },
+            "image6":{
+              "type": "image"
+            },
+            "image7":{
+              "type": "image"
+            },
+            "image8":{
+              "type": "image"
+            }
+          },
+          "block_order": [
+            "image1",
+            "image2",
+            "image3",
+            "image4",
+            "image5",
+            "image6",
+            "image7",
+            "image8"
+          ]
         },
         "product-filter":{
           "type": "product-filter"
@@ -46,6 +82,9 @@
         "product-list":
         {
           "type": "product-list"
+        },
+        "multi-article":{
+          "type": "multi-article"
         }
     },
     "order": [
@@ -54,6 +93,7 @@
         "slideshow",
         "list-image",
         "product-filter",
-        "product-list"
+        "product-list",
+        "multi-article"
     ]
 }

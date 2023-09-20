@@ -1,8 +1,5 @@
 {% liquid
    assign ctpb =  '--xs-pb: 1; --lg-pb: 3.6'
-   assign heading-fs = '--xs-heading-fs: 1.8; --lg-heading-fs: 1.6'
-   assign fs_14 = '--body-font-size: 1.4'
-   assign fs_12 = '--body-font-size: 1.2'
 %}
 
 <div class="background-color color-{{ section.settings.color_scheme }} p-relative">
@@ -46,13 +43,13 @@
           {% endif %}
         </a>
       </div>
-      <nav class="slide-menu p-absolute width-100pc lg-width-initial transition-3s overflow-hidden oswald xs-heading lg-heading" style="{{ heading-fs }}">
+      <nav class="slide-menu p-absolute width-100pc lg-width-initial transition-3s overflow-hidden xs-h-18 lg-h-14">
         <ul class="link-list background-color d-flex flex-column list-style-none align-items-center justify-center">
           {% for link in section.settings.menu.links %}
-            <li class="width-100pc lg-width-initial text-align-center">
+            <li class="width-100pc lg-width-initial text-center">
               {% if link.links.size > 0 %}
                 <span class="d-block p-relative lg-d-flex gap-8">
-                  <a class="text-color text-decor-none" href="{{ link.url }}">
+                  <a class="nav-item text-color text-decor-none" href="{{ link.url }}">
                     {{ link.title | upcase }}
                   </a>
                   <button class="btn btn__icon open-child p-absolute right-0 transition-3s" data-menu-id="{{ forloop.index0 }}">
@@ -76,7 +73,7 @@
                   {% endfor %}
                 </ul>
               {% else %}
-                <a class="text-color menu-link text-decor-none" href="{{ link.url }}">
+                <a class="nav-item text-color menu-link text-decor-none" href="{{ link.url }}">
                   {{ link.title | upcase }}
                 </a>
               {% endif %}
@@ -92,7 +89,7 @@
       </nav>
       <div class="grid__item xs-occupies-1column">
         <div class="d-flex justify-end lg-gap-30">
-          <div class="d-none lg-d-flex lg-gap-12 align-items-center oswald xs-heading lg-heading" style="{{ heading-fs }}">
+          <div class="d-none lg-d-flex lg-gap-12 align-items-center xs-h-18 lg-h-14">
             <a class="text-color text-decor-none text-uppercase" href="">
               sign in
             </a>
@@ -121,11 +118,11 @@
               {% endif %}
               <div class="d-none lg-d-block text-color">
                 {% if cart.item_count > 0 %}
-                  <span class="d-block body-font" style="{{ fs_12 }}">{{ cart.item_count }} item(s)</span>
+                  <span class="d-block lg-fs-12">{{ cart.item_count }} item(s)</span>
                 {% else %}
-                  <span class="d-block body-font" style="{{ fs_12 }}">Shopping Cart</span>
+                  <span class="d-block lg-fs-12">Shopping Cart</span>
                 {% endif %}
-                <span class="d-block body-font" style="{{ fs_14 }}">
+                <span class="d-block lg-fs-14">
                   {{ cart.total_price | money }}
                 </span>
               </div>

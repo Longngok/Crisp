@@ -1,25 +1,23 @@
 <div class="container">
-  <div class="container-scroll">
-    <div class="scroll-content">
-      {% for product in collections.all.products %}
-        <div class="card item">
-          <div class="card__img">
-            <img src="{{ product.featured_image | image_url }}" alt="">
-          </div>
-          <div class="card__body">
-            <h3>{{ product.title }}</h3>
-            {% if product.compare_at_price %}
-              <span class="new-price">{{ product.price | money }}</span>
-              <span class="old-price">{{ product.compare_at_price | money }}</span>
-            {% else %}
-              <span class="">{{ product.price | money }}</span>
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-    <button id="prev-btn">Prev</button>
-    <button id="next-btn">Next</button>
+  <div class="product-list__header d-flex align-items-center justify-spacebtw">
+    <h2 class="xs-h-18 lg-h-24 colon">{{ section.settings.heading }}</h2>
+    {% if section.settings.product_list.count > 5 %}
+      <div class="d-none lg-d-block">
+        <button class="js-prev-scroll btn btn__icon">
+          {% render 'icon-prev-scroll' %}
+        </button>
+        <button class="js-next-scroll btn btn__icon">
+          {% render 'icon-next-scroll' %}
+        </button>
+      </div>
+    {% endif %}
+  </div>
+  <div class="container-scroll d-grid xs-2-column lg-d-flex overflow-hidden">
+    {% for product in section.settings.product_list %}
+      <div class="scroll-content">
+        {% render 'product-card', product: product %}
+      </div>
+    {% endfor %}
   </div>
 </div>
 
@@ -27,6 +25,22 @@
   {
     "name": "Product List",
     "tag": "section",
-    "settings": []
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Title"
+      }, {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Choose product"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product List"
+      }
+    ]
   }
 {% endschema %}

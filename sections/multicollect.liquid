@@ -1,25 +1,16 @@
-<div class="container multicollect color-{{ section.settings.color_scheme }}">
+<div class="container multicollect">
   <div class="d-grid xs-4-column lg-18-column multicollect__gap lg-gap-29">
     {% for blocks in section.blocks %}
       {% case blocks.type %}
         {% when 'card1' %}
-        <div class="grid__item p-relative xs-column lg-column" style="--xs-cl: 1/5 ;--lg-cl: 1/10">
-          <div class="card p-relative">
-            <div class="card__img card__img--xs">
-              {% if blocks.settings.img != blank %}
-                <img
-                  class="width-100pc height-100pc objectfit-cover"
-                  src="{{ blocks.settings.img | image_url }}"
-                  alt="{{ blocks.settings.img.alt }}">
-              {% else %}
-                {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg width-100pc height-100pc' }}
-              {% endif %}
-            </div>
+        <div class="grid__item p-relative xs-column lg-column color-{{ blocks.settings.color_scheme }}" style="--xs-cl: 1/5 ;--lg-cl: 1/10">
+          <div class="card p-relative background-img background-contain rectangle-horizontal" style="--background-img: url('{{ blocks.settings.img | image_url }}')">
+            <div class="background-gradient p-absolute top-0 right-0 bottom-0 width" style="--custom-width: {{ blocks.settings.color_range | append: '%'  }}"></div>
             <div class="card__body p-absolute card__body--position1 top-0 bottom-0 d-flex flex-column justify-center">
-              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading-fs: {{ blocks.settings.desktop_fs }}">
+              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading: {{ blocks.settings.desktop_fs }}">
                 {{ blocks.settings.header | upcase }}
               </h3>
-              <p>
+              <p class="lg-fs-22">
                 {{ blocks.settings.content }}
               </p>
               {% if blocks.settings.button != blank %}
@@ -33,19 +24,20 @@
           </div>
         </div>
         {% when 'card2' %}
-        <div class="grid__item p-relative xs-column lg-column lg-row" style="--xs-cl: 1/5;--lg-cl: 10/19; --lg-row: 1/3">
+        <div class="grid__item p-relative xs-column lg-column lg-row color-{{ blocks.settings.color_scheme }}" style="--xs-cl: 1/5;--lg-cl: 10/19; --lg-row: 1/3">
           <div class="card p-relative height-100pc">
             <div class="card__img card__img--lg height-100pc width-100pc">
               <img
                 class="width-100pc height-100pc objectfit-cover"
                 src="{{ blocks.settings.img | image_url }}"
                 alt="{{ blocks.settings.img.alt }}">
+              <div class="color"></div>
             </div>
             <div class="card__body card__body--position2 p-absolute">
-              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading-fs: {{ blocks.settings.desktop_fs }}">
+              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading: {{ blocks.settings.desktop_fs }}">
                 {{ blocks.settings.header | upcase }}
               </h3>
-              <p>
+              <p class="lg-fs-25">
                 {{ blocks.settings.content }}
               </p>
               {% if blocks.settings.button != blank %}
@@ -59,19 +51,14 @@
           </div>
         </div>
         {% when 'card3' %}
-        <div class="grid__item p-relative xs-column lg-column" style="--xs-cl: 1/5;--lg-cl: 1/10">
-          <div class="card p-relative">
-            <div class="card__img card__img--xs">
-              <img
-                class="width-100pc height-100pc objectfit-cover"
-                src="{{ blocks.settings.img | image_url }}"
-                alt="{{ blocks.settings.img.alt }}">
-            </div>
-            <div class="card__body p-absolute card__body--position3 top-0 bottom-0 d-flex flex-column justify-center">
-              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading-fs: {{ blocks.settings.desktop_fs }}">
+        <div class="grid__item p-relative xs-column lg-column color-{{ blocks.settings.color_scheme }}" style="--xs-cl: 1/5;--lg-cl: 1/10">
+          <div class="background-img background-contain background-right p-relative rectangle-horizontal" style="--background-img: url('{{ blocks.settings.img | image_url }}')">
+            <div class="background-gradient p-absolute top-0 left-0 bottom-0 width" style="--custom-width: {{ blocks.settings.color_range | append: '%'  }}"></div>
+            <div class="p-absolute card__body--position3 top-0 bottom-0 d-flex flex-column justify-center">
+              <h3 class="xs-heading lg-heading" style="--xs-heading-fs: {{ blocks.settings.mobile_fs }}; --lg-heading: {{ blocks.settings.desktop_fs }}">
                 {{ blocks.settings.header | upcase }}
               </h3>
-              <p>
+              <p class="lg-fs-22">
                 {{ blocks.settings.content }}
               </p>
               {% if blocks.settings.button != blank %}
@@ -93,19 +80,28 @@
   {
     "name": "Multicollect",
     "tag": "section",
-    "settings": [
-      {
-        "type": "color_scheme",
-        "id": "color_scheme",
-        "label": "Color",
-        "default": "background-1"
-      }
-    ],
+    "settings": [],
     "blocks": [
       {
         "type": "card1",
         "name": "card 1",
         "settings": [
+          {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color",
+            "default": "background-1"
+          },
+          {
+            "type": "range",
+            "id": "color_range",
+            "min": 10,
+            "max": 100,
+            "step": 10,
+            "unit": "%",
+            "label": "Color Width",
+            "default": 50
+          },
           {
             "type": "image_picker",
             "id": "img",
@@ -119,8 +115,7 @@
             "step": 0.1,
             "label": "Desktop Heading Size",
             "default": 4.8
-          },
-          {
+          }, {
             "type": "range",
             "id": "mobile_fs",
             "min": 1.6,
@@ -128,8 +123,7 @@
             "step": 0.1,
             "label": "Mobile Heading Size",
             "default": 1.6
-          },
-          {
+          }, {
             "type": "inline_richtext",
             "id": "header",
             "label": "Heading",
@@ -155,6 +149,22 @@
         "name": "card 2",
         "settings": [
           {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color",
+            "default": "background-1"
+          },
+          {
+            "type": "range",
+            "id": "color_range",
+            "min": 10,
+            "max": 100,
+            "step": 10,
+            "unit": "%",
+            "label": "Color Width",
+            "default": 50
+          },
+          {
             "type": "image_picker",
             "id": "img",
             "label": "Image"
@@ -167,8 +177,7 @@
             "step": 0.1,
             "label": "Desktop Heading Size",
             "default": 4.8
-          },
-          {
+          }, {
             "type": "range",
             "id": "mobile_fs",
             "min": 1.6,
@@ -176,8 +185,7 @@
             "step": 0.1,
             "label": "Mobile Heading Size",
             "default": 1.6
-          },
-          {
+          }, {
             "type": "inline_richtext",
             "id": "header",
             "label": "Heading",
@@ -203,6 +211,22 @@
         "name": "card 3",
         "settings": [
           {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color",
+            "default": "background-1"
+          },
+          {
+            "type": "range",
+            "id": "color_range",
+            "min": 10,
+            "max": 100,
+            "step": 10,
+            "unit": "%",
+            "label": "Color Width",
+            "default": 50
+          },
+          {
             "type": "image_picker",
             "id": "img",
             "label": "Image"
@@ -215,8 +239,7 @@
             "step": 0.1,
             "label": "Desktop Heading Size",
             "default": 4.8
-          },
-          {
+          }, {
             "type": "range",
             "id": "mobile_fs",
             "min": 1.6,
@@ -224,8 +247,7 @@
             "step": 0.1,
             "label": "Mobile Heading Size",
             "default": 1.6
-          },
-          {
+          }, {
             "type": "inline_richtext",
             "id": "header",
             "label": "Heading",

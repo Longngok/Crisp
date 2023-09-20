@@ -38,6 +38,26 @@
     padding-block: calc(var(--gutter-base) * var(--xs-pb));
 }
 
+.xs-heading-mb
+{
+    margin-bottom: var(--xs-heading-mb);
+}
+
+.xs-content-mb
+{
+    margin-bottom: var(--xs-content-mb);
+}
+
+.background-gradient
+{
+    background: var(--background-gradient);
+}
+
+.width
+{
+    width: var(--custom-width);
+}
+
 /*--Grid--*/
 .xs-column-gap
 {
@@ -68,5 +88,20 @@
     .lg-row-gap
     {
         row-gap: var(--lg-gutter-custom);
+    }
+
+    .lg-heading
+    {
+        font-size: calc(var(--font-heading-scale) * var(--lg-heading));
+    }
+
+    .lg-heading-mb
+    {
+        margin-bottom: var(--lg-heading-mb);
+    }
+
+    .lg-content-mb
+    {
+        margin-bottom: var(--lg-content-mb);
     }
 }

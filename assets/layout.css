@@ -1,11 +1,21 @@
 .xs-gap-14
 {
-    gap: 1.4rem;
+    column-gap: 1.4rem;
+}
+
+.xs-gap-18
+{
+    gap: 1.8rem;
 }
 
 .xs-gap-19
 {
     gap: 1.9rem;
+}
+
+.xs-2-column
+{
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .xs-4-column
@@ -32,40 +42,11 @@
 {
     grid-column: span 2;
 }
-
-.xs-grid__span3
-{
-    grid-column: span 3;
-}
-
-.xs-grid__span4
-{
-    grid-column: span 4;
-}
-
-.xs-grid__en4
-{
-    grid-column-end: 4;
-}
-
-.xs-grid__en5
-{
-    grid-column-end: 5;
-}
-
-.xs-grid__row1
-{
-    grid-row: 1/2;
-}
-
-.column-end-3
-{
-    grid-column-end: 3;
-}
-
-.column-start-3
-{
-    grid-column-start: 3;
+@media (min-width: 768px) {
+    .md-2-column
+    {
+        grid-template-columns: repeat(2,1fr);
+    }
 }
 
 @media (min-width: 992px) {
@@ -119,11 +100,6 @@
         grid-column: span 3;
     }
 
-    .lg-occupies-4column
-    {
-        grid-column: span 4;
-    }
-
     .lg-occupies-8column
     {
         grid-column: span 8;
@@ -134,33 +110,4 @@
         grid-column: span 10;
     }
 
-    .lg-grid__span18
-    {
-        grid-column: span 18;
-    }
-
-    .lg-grid__en1
-    {
-        grid-column-end: 1;
-    }
-
-    .lg-grid__en12
-    {
-        grid-column-end: 12;
-    }
-
-    .lg-column-end18
-    {
-        grid-column-end: 18;
-    }
-
-    .lg-grid__en19
-    {
-        grid-column-end: 19;
-    }
-
-    .lg-grid__rspan2
-    {
-        grid-row: span 2;
-    }
 }

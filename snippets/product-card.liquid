@@ -1,0 +1,43 @@
+<div class="card p-relative">
+  {% liquid
+        assign oldPrice = product.compare_at_price
+        assign newPrice = product.price 
+        assign totalSale = oldPrice | minus: newPrice | times: 100.0 | divided_by: oldPrice | round | prepend: '-'  | append: '%'  
+    %}
+  {% if product.compare_at_price %}
+    <span class="sale-tag background-primary c-secondary p-absolute left-0 xs-h-12 lg-h-14">{{ totalSale }}</span>
+  {% endif %}
+  <div class="card-img mb-14 p-relative rectangle">
+    <img
+      class="objectfit-cover width-100pc cube-content"
+      src="{{ product.featured_image | image_url }}"
+      alt="{{ product.featured_image.alt }}">
+    <div class="card-img__btn-ctnr p-absolute bottom-0 left-0 right-0 background-secondary">
+      <form
+        class="d-flex justify-center"
+        method="post"
+        action="/cart/add">
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.variants.first.id }}" />
+        <input
+          type="submit"
+          value="Add to cart"
+          class="btn btn__primary btn__cart-add btn--lg text-uppercase" />
+      </form>
+    </div>
+  </div>
+  <div class="card-body">
+    <span class="card-body__collect-title lg-h-12">{{ collectionTitle | upcase }}</span>
+    <h3 class="card-body__title xs-h-12 lg-h-18">{{ product.title }}</h3>
+    {% if product.compare_at_price %}
+      <div class="d-flex align-items-center card-body__price-ctnr">
+        <span class="card-body__new-price xs-h-14 lg-h-22">{{ newPrice | money }}</span>
+        <span class="card-body__old-price xs-h-8 lg-h-14">{{ oldPrice | money }}</span>
+      </div>
+    {% else %}
+      <span class="xs-h-14 lg-h-22">{{ product.price | money }}</span>
+    {% endif %}
+  </div>
+</div>

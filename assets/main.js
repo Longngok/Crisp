@@ -26,6 +26,36 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// // Hàm để đặt trạng thái active cho mục menu
+// function setActiveMenuItem() {
+//   const currentURL = window.location.href;
+//   const menuItems = document.querySelectorAll('.nav-item');
+
+//   // Duyệt qua các mục menu
+//   menuItems.forEach(function(item) {
+//       const itemURL = item.getAttribute('href');
+
+//       // So sánh URL trang hiện tại với URL của mục menu
+//       if (currentURL === itemURL) {
+//           item.classList.add('active');
+//       } else {
+//           item.classList.remove('active');
+//       }
+//   });
+// }
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   setActiveMainItem(); // Đặt trạng thái active cho mục chính khi trang tải xong
+// });
+
+
+// Xử lý sự kiện khi trang tải xong
+document.addEventListener('DOMContentLoaded', function() {
+  setActiveMainItem(); // Đặt trạng thái active cho mục chính khi trang tải xong
+});
+
+
+
 //submenu
 document.addEventListener('DOMContentLoaded', function() {
   var openButtons = document.querySelectorAll('.open-child');
@@ -165,6 +195,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+
+/*--scroll--*/
+// Đầu tiên, chúng ta sẽ chọn tất cả các phần container-scroll trong tài liệu
+const prevBtns = document.querySelectorAll('.js-prev-scroll');
+const nextBtns = document.querySelectorAll('.js-next-scroll');
+const containers = document.querySelectorAll('.container-scroll');
+
+prevBtns.forEach((prevBtn, index) => {
+  const nextBtn = nextBtns[index];
+  const container = containers[index];
+  const itemWidth = container.offsetWidth / 5; // Chiều rộng của mỗi item
+
+  nextBtn.addEventListener('click', () => {
+    container.scrollBy({
+      left: itemWidth,
+      behavior: 'smooth'
+    });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    container.scrollBy({
+      left: -itemWidth,
+      behavior: 'smooth'
+    });
+  });
+});
+
+
 
 
 

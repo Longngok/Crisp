@@ -1,30 +1,51 @@
-<div class="bg__img" style="background-color: black; --bg-img: url('{{ section.settings.img | image_url }}')">
-  <div class="container p__block-17 lg-p__block" style="--padding-block: {{ section.settings.padding | append: 'rem'  }}">
-    <div class="box">
-      <div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="603"
-          height="102"
-          viewBox="0 0 603 102"
-          fill="none">
-          <path
-            d="M0 1H602V101.5"
-            stroke="black"
-            stroke-width="2" />
-        </svg>
+{% liquid
+  assign column1 = "--lg-cl: 1/11"
+  assign column2 = "--lg-cl: 12/18"
+%}
+
+<div class="container">
+  {% if section.settings.richtext_option == "option1" %}
+    <div class="color-{{ section.settings.color_scheme }} background-img background-cover objectfit-cover xs-padding-block lg-padding-block p-relative" style="background-color: var(--background-color); --background-img: url('{{ section.settings.img | image_url }}'); --xs-pb: {{ section.settings.xs-padding }}; --lg-pb: {{ section.settings.lg-padding }}">
+      <div class="background-gradient width p-absolute top-0 right-0 left-0 bottom-0" style="--custom-width: {{ section.settings.color_range | append: '%'  }}"></div>
+      <div class="richtext__box frame__position p-relative" style="--frame-pt: {{ section.settings.frame-ver | append: 'rem'  }};--frame-pr:{{ section.settings.frame-hor | append: 'rem'  }};">
+        <h2 class="frame richtext__title xs-h-14 lg-heading xs-heading-mb lg-heading-mb " style="--lg-heading: {{ section.settings.lg-heading }}; --xs-heading-mb: {{ section.settings.xs-heading-mb | append: 'rem' }}; --lg-heading-mb:{{ section.settings.lg-heading-mb | append: 'rem'  }}">
+          {{ section.settings.header | upcase }}
+        </h2>
+        <p class="lg-fs-25 xs-content-mb lg-content-mb" style="--xs-content-mb: {{ section.settings.xs-content-mb | append: 'rem'  }}; --lg-content-mb:{{ section.settings.lg-content-mb | append: 'rem'  }}">
+          {{ section.settings.content }}
+        </p>
+        <div>
+          <a class="btn btn__custome btn--lg text-decor-none" href="{{ section.settings.link }}">
+            {{ section.settings.btn_label | upcase }}
+          </a>
+        </div>
       </div>
-      <h2>
-        {{ section.settings.header }}
-      </h2>
-      <p>
-        {{ section.settings.content }}
-      </p>
-      <a href="{{ section.settings.link }}">
-        shop now
-      </a>
     </div>
-  </div>
+  {% elsif section.settings.richtext_option == "option2" %}
+    <div class="color-{{ section.settings.color_scheme }} d-grid lg-18-column lg-gap-29 p-relative">
+      <div class="grid__item lg-column p-absolute width-100pc height-100pc" style="{{ column1 }}">
+        <img
+          class="objectfit-cover width-100pc height-100pc"
+          src="{{ section.settings.img | image_url }}"
+          alt="{{ section.settings.img | image_url }}">
+      </div>
+      <div class="richtext__body text-center grid__item lg-column p-relative" style="{{ column2 }}; --frame-pt: {{ section.settings.frame-ver }};--frame-pr:{{ section.settings.frame-hor }};">
+        <div class="richtext__content frame__position background-secondary text-center">
+          <h2 class="frame richtext__title xs-h-14 lg-heading xs-heading-mb lg-heading-mb " style="--lg-heading: {{ section.settings.lg-heading }}; --xs-heading-mb: {{ section.settings.xs-heading-mb | append: 'rem' }}; --lg-heading-mb:{{ section.settings.lg-heading-mb | append: 'rem'  }}">
+            {{ section.settings.header | upcase }}
+          </h2>
+          <p class="lg-fs-25 xs-content-mb lg-content-mb" style="--xs-content-mb: {{ section.settings.xs-content-mb | append: 'rem'  }}; --lg-content-mb:{{ section.settings.lg-content-mb | append: 'rem'  }}">
+            {{ section.settings.content }}
+          </p>
+          <div>
+            <a class="btn btn__custome btn--lg text-decor-none" href="{{ section.settings.link }}">
+              {{ section.settings.btn_label | upcase }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
 </div>
 
 
@@ -34,31 +55,136 @@
     "tag": "section",
     "settings": [
       {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "color",
+        "default": "background-1"
+      },
+      {
+        "type": "select",
+        "id": "richtext_option",
+        "label": "Richtext Option",
+        "options": [
+          {
+            "value": "option1",
+            "label": "Option 1"
+          }, {
+            "value": "option2",
+            "label": "Option 2"
+          }
+        ],
+        "default": "option1"
+      },
+      {
         "type": "image_picker",
         "id": "img",
         "label": "Background"
       },
       {
         "type": "range",
-        "id": "padding",
+        "id": "color_range",
+        "min": 10,
+        "max": 100,
+        "step": 10,
+        "unit": "%",
+        "label": "Color Width",
+        "default": 50
+      }, {
+        "type": "range",
+        "id": "lg-heading",
+        "min": 5,
+        "max": 5.6,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Desktop Heading Font",
+        "default": 5.6
+      }, {
+        "type": "range",
+        "id": "frame-ver",
+        "min": 1.9,
+        "max": 2.1,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Frame distance vertically",
+        "default": 1.9
+      }, {
+        "type": "range",
+        "id": "frame-hor",
+        "min": 5.1,
+        "max": 5.7,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Frame distance horizontally",
+        "default": 5.1
+      }, {
+        "type": "range",
+        "id": "xs-padding",
+        "min": 1,
+        "max": 1.7,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Mobile Padding",
+        "default": 1
+      }, {
+        "type": "range",
+        "id": "lg-padding",
         "min": 5.9,
         "max": 7.7,
         "step": 0.1,
         "unit": "rem",
         "label": "Desktop Padding",
         "default": 5.9
-      },
-      {
+      }, {
         "type": "inline_richtext",
         "id": "header",
         "label": "Header",
         "default": "shoping without limits."
-      },
-      {
+      }, {
+        "type": "range",
+        "id": "xs-heading-mb",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile heading margin bottom",
+        "default": 0
+      }, {
+        "type": "range",
+        "id": "lg-heading-mb",
+        "min": 1.7,
+        "max": 3.4,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Desktop heading margin bottom",
+        "default": 1.7
+      }, {
         "type": "inline_richtext",
         "id": "content",
         "label": "Content",
-        "default": "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
+        "default": "Choose the best option for you, and it does not matter whether you are."
+      }, {
+        "type": "range",
+        "id": "xs-content-mb",
+        "min": 0.8,
+        "max": 1.6,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Mobile content margin bottom",
+        "default": 0.8
+      }, {
+        "type": "range",
+        "id": "lg-content-mb",
+        "min": 0,
+        "max": 2.4,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Desktop content margin bottom",
+        "default": 0
+      }, {
+        "type": "inline_richtext",
+        "id": "btn_label",
+        "label": "Button Label",
+        "default": "Shop Now"
       }, {
         "type": "url",
         "id": "link",

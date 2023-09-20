@@ -7,14 +7,37 @@
     --color-danger: #EB5757;
     --color-muted: #C4C4C4;
     --color-grey: #828282;
+    --color-grey2: #BDBDBD;
+    --color-grey3: #4F4F4F;
+    --color-grey4: #F8F9FB;
 
     --gutter-base: 1rem;
-    --gutter: calc(var(--gutter-base) * var(--xs-gutter-custom))
-}
+    --gutter: calc(var(--gutter-base) * var(--xs-gutter-custom));
 
+    --xs-fs-10: calc(var(--font-body-scale) * 1);
+    --xs-heading-18: calc(var(--font-heading-scale) * 1.8);
+    --xs-heading-14: calc(var(--font-heading-scale) * 1.4);
+    --xs-heading-12: calc(var(--font-heading-scale) * 1.2);
+    --xs-heading-10: calc(var(--font-heading-scale) * 1);
+    --xs-heading-8: calc(var(--font-heading-scale) * .8);
+}
 @media (min-width: 992px) {
     :root
     {
-        --gutter: calc(var(--gutter-base) * var(--lg-gutter-custom))
+        --lg-fs-25: calc(var(--font-body-scale) * 2.5);
+        --lg-fs-22: calc(var(--font-body-scale) * 2.2);
+        --lg-fs-16: calc(var(--font-body-scale) * 1.6);
+        --lg-fs-14: calc(var(--font-body-scale) * 1.4);
+        --lg-fs-13: calc(var(--font-body-scale) * 1.3);
+        --lg-fs-12: calc(var(--font-body-scale) * 1.2);
+        --lg-heading-26: calc(var(--font-heading-scale) * 2.6);
+        --lg-heading-24: calc(var(--font-heading-scale) * 2.4);
+        --lg-heading-22: calc(var(--font-heading-scale) * 2.2);
+        --lg-heading-18: calc(var(--font-heading-scale) * 1.8);
+        --lg-heading-14: calc(var(--font-heading-scale) * 1.4);
+        --lg-heading-12: calc(var(--font-heading-scale) * 1.2);
     }
 }
+
+
+

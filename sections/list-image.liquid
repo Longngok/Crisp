@@ -1,13 +1,13 @@
 <div class="container list-image">
   <div class="list-image__header justify-center d-none lg-d-flex">
-    <h2 class="list-image__title lg-heading" style="--lg-heading-fs: 2.4">{{ section.settings.header | upcase }}</h2>
+    <h2 class="list-image__title lg-h-24">{{ section.settings.header | upcase }}</h2>
   </div>
   <div class="d-grid slideshow__content xs-4-column lg-d-flex lg-gap-29">
     {% for blocks in section.blocks %}
-      <div class="grid__item xs-occupies-2column" style="aspect-ratio: 5/3;">
+      <div class="grid__item xs-occupies-2column">
         {% if blocks.settings.image != blank %}
           <img
-            class="width-100pc height-100pc list-image__image"
+            class="list-image__image width-100pc height-100pc objectfit-cover"
             src="{{ blocks.settings.image | image_url }}"
             alt="{{ blocks.settings.image.alt }}">
         {% else %}
@@ -49,6 +49,21 @@
         "name": "List Image",
         "blocks": [
           {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }, {
+            "type": "image"
+          }, {
+            "type": "image"
+          }, {
             "type": "image"
           }, {
             "type": "image"
