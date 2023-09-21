@@ -11,6 +11,12 @@ html{
 
 .container
 {
+    max-width: 1458px;
+    margin: 0 auto;
+}
+
+.container-fluid
+{
     margin: 0 auto;
     padding-inline: var(--ctpi);
     transition: padding 0.3s;
@@ -174,7 +180,6 @@ h1, h2, h3, h4, h5, .xs-h-18, .xs-h-14, .xs-h-12, .xs-h-10, .xs-h-8, .lg-h-26, .
 .banner
 {
     --ctpi: 0;
-    height: 492px;
 }
 
 .slideshow__btns
@@ -190,16 +195,14 @@ h1, h2, h3, h4, h5, .xs-h-18, .xs-h-14, .xs-h-12, .xs-h-10, .xs-h-8, .lg-h-26, .
     aspect-ratio: 6/9;
 }
 
-.slide__img--sm
+.slide__img--small
 {
-    margin-right: -2.6rem;
-    max-height: 182px;
+    max-width: 416px;
 }
 
-.slide__img--lg
+.slide__img--large
 {
-    margin-left: -2.6rem;
-    max-height: 207px;
+    max-width: 474px;
 }
 
 .btn__dot {
@@ -229,7 +232,7 @@ h1, h2, h3, h4, h5, .xs-h-18, .xs-h-14, .xs-h-12, .xs-h-10, .xs-h-8, .lg-h-26, .
     border: 2px solid var(--color-muted);
 }
 
-.slideshow__content
+.list-image__content
 {
     row-gap: 1rem;
     column-gap: 1.4rem;

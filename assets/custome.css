@@ -59,6 +59,16 @@
 }
 
 /*--Grid--*/
+.xs-column
+{
+    grid-column: var(--xs-cl);
+}
+
+.xs-template-columns
+{
+    grid-template-columns: repeat(var(--xs-template), 1fr);
+}
+
 .xs-column-gap
 {
     column-gap: var(--xs-gutter-custom);
@@ -73,6 +83,11 @@
     .lg-column
     {
         grid-column: var(--lg-cl);
+    }
+
+    .lg-template-columns
+    {
+        grid-template-columns: repeat(var(--lg-template), 1fr);
     }
     
     .lg-row

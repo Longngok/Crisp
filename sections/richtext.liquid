@@ -3,7 +3,7 @@
   assign column2 = "--lg-cl: 12/18"
 %}
 
-<div class="container">
+<div class="container-fluid">
   {% if section.settings.richtext_option == "option1" %}
     <div class="color-{{ section.settings.color_scheme }} background-img background-cover objectfit-cover xs-padding-block lg-padding-block p-relative" style="background-color: var(--background-color); --background-img: url('{{ section.settings.img | image_url }}'); --xs-pb: {{ section.settings.xs-padding }}; --lg-pb: {{ section.settings.lg-padding }}">
       <div class="background-gradient width p-absolute top-0 right-0 left-0 bottom-0" style="--custom-width: {{ section.settings.color_range | append: '%'  }}"></div>
@@ -30,7 +30,7 @@
           alt="{{ section.settings.img | image_url }}">
       </div>
       <div class="richtext__body text-center grid__item lg-column p-relative" style="{{ column2 }}; --frame-pt: {{ section.settings.frame-ver }};--frame-pr:{{ section.settings.frame-hor }};">
-        <div class="richtext__content frame__position background-secondary text-center">
+        <div class="richtext__content lg-text-start frame__position background-secondary text-center">
           <h2 class="frame richtext__title xs-h-14 lg-heading xs-heading-mb lg-heading-mb " style="--lg-heading: {{ section.settings.lg-heading }}; --xs-heading-mb: {{ section.settings.xs-heading-mb | append: 'rem' }}; --lg-heading-mb:{{ section.settings.lg-heading-mb | append: 'rem'  }}">
             {{ section.settings.header | upcase }}
           </h2>

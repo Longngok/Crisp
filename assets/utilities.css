@@ -9,6 +9,11 @@
     flex-direction: column;
 }
 
+.flex__item
+{
+    flex: 0 0 auto;
+}
+
 .d-grid
 {
     display: grid;
@@ -367,5 +372,11 @@
     .btn--sm
     {
         font-size: 1rem;
+    }
+
+    /*--anorther--*/
+    .lg-text-start
+    {
+        text-align: start;
     }
 }

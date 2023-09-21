@@ -83,8 +83,8 @@
         {
           "type": "product-list"
         },
-        "multi-article":{
-          "type": "multi-article"
+        "blog-spot":{
+          "type": "blog-spot"
         }
     },
     "order": [
@@ -94,6 +94,6 @@
         "list-image",
         "product-filter",
         "product-list",
-        "multi-article"
+        "blog-spot"
     ]
 }

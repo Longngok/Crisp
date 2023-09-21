@@ -1,33 +1,35 @@
-<div class="container banner background-color color-{{ section.settings.color_scheme }}">
-  <div class="p-relative overflow-hidden height-100pc">
+<div class="container-fluid banner background-color color-{{ section.settings.color_scheme }}">
+  <div class="overflow-hidden p-relative height-100pc">
     <div class="js-banner-images height-100pc d-flex transition-3s">
       {% for block in section.blocks %}
-        <div class="width-100pc p-relative">
-          {% if block.settings.img_bg != blank %}
-            <img
-              src="{{ block.settings.img_bg | image_url }}"
-              alt="{{ block.settings.img_bg.alt }}"
-              class="objectfit-cover width-100vw height-100pc">
-          {%- else -%}
-            {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg objectfit-cover width-100vw height-100pc' }}
-          {% endif %}
-          <div class="p-absolute left-0 right-0 top-0 bottom-0">
-            <div class="d-grid lg-2-column xs-gap--19 lg-gap-29">
-              <div class="d-grid grid-column lg-grid-custome lg-order-1">
-                <div class="grid__item xs-occupies-2column d-flex align-items-center justify-end xs-grid__row1 width-100pc height-100pc">
+        <div class="width-100pc flex__item">
+          <div class="p-absolute top-0 bottom-0">
+            {% if block.settings.img_bg != blank %}
+              <img
+                src="{{ block.settings.img_bg | image_url }}"
+                alt="{{ block.settings.img_bg.alt }}"
+                class="objectfit-cover width-100vw height-100pc">
+            {%- else -%}
+              {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg objectfit-cover width-100vw height-100pc' }}
+            {% endif %}
+          </div>
+          <div class="p-relative">
+            <div class="container d-grid xs-4-columns lg-template-columns xs-gap--19 lg-gap-29" style="--lg-template: 12">
+              <div class="d-grid lg-column lg-template-columns" style="--lg-template: 8; --lg-cl: 7 / span 7">
+                <div class="grid__item d-flex align-items-center grid-1-row lg-column" style="--lg-cl: 1 / span 4">
                   {% if block.settings.img1 != blank %}
                     <img
-                      class="objectfit-cover slide__img slide__img--sm"
+                      class="objectfit-cover slide__img slide__img--small width-100pc"
                       src="{{ block.settings.img1 | image_url }}"
                       alt="{{ block.settings.img1.alt }}">
                   {% else %}
                     {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg objectfit-cover rectangle__xs' }}
                   {% endif %}
                 </div>
-                <div class="grid__item xs-occupies-2column lg-occupies-1column xs-grid__row1">
+                <div class="grid__item grid-1-row lg-column" style="--lg-cl: 4 / span 5">
                   {% if block.settings.img2 != blank %}
                     <img
-                      class="objectfit-cover slide__img slide__img--lg"
+                      class="objectfit-cover slide__img slide__img--large width-100pc height-100pc"
                       src="{{ block.settings.img2 | image_url }}"
                       alt="{{ block.settings.img2.alt }}">
                   {% else %}
@@ -35,8 +37,8 @@
                   {% endif %}
                 </div>
               </div>
-              <div class="grid-item d-flex align-items-center justify-center">
-                <div class="text-center">
+              <div class="grid-item grid-1-row lg-column" style="--lg-cl: 1 / span 5">
+                <div class="slideshow__content text-center lg-text-start p-relative frame">
                   <h2 class="slide__content xs-heading lg-heading" style="--lg-heading: {{ section.settings.lg-heading-fs }}; --xs-heading-fs: {{ section.settings.xs-heading-fs }}">
                     {{ block.settings.heading | upcase }}
                   </h2>
